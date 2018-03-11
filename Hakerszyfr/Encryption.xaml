@@ -1,0 +1,37 @@
+﻿<Window x:Class="Hakerszyfr.Encryption"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hakerszyfr"
+        mc:Ignorable="d"
+        Closing="OnWindowClosing"
+        Title="Encryption" Height="475" Width="770">
+    <Grid>
+        <Label Content="ENCRYPTION" HorizontalAlignment="Left" Margin="43,34,0,0" VerticalAlignment="Top" Height="67" Width="303" FontSize="40"/>
+        <Label HorizontalAlignment="Left" Margin="43,106,0,0" VerticalAlignment="Top">
+            <Label Content="Choose file" FontSize="15" Width="239"/>
+        </Label>
+        <Label Name="chosenFileLabel" Content="" HorizontalAlignment="Left" Margin="140,148,0,0" VerticalAlignment="Top" Width="190" Height="33" FontSize="15"/>
+        <Button Click="openFile" Content="Browse" HorizontalAlignment="Left" Margin="43,151,0,0" VerticalAlignment="Top" Width="75" FontSize="15"/>
+        <Label Content="Choose cipher mode" HorizontalAlignment="Left" Margin="43,202,0,0" VerticalAlignment="Top" Width="249" FontSize="15"/>
+        <RadioButton Content="ECB" HorizontalAlignment="Left" Margin="43,237,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
+        <RadioButton Content="CBC" HorizontalAlignment="Left" Margin="43,257,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked_1"/>
+        <RadioButton Content="CFB" HorizontalAlignment="Left" Margin="43,277,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="OFB" HorizontalAlignment="Left" Margin="43,297,0,0" VerticalAlignment="Top"/>
+        <Label Content="Result filename" HorizontalAlignment="Left" Margin="440,114,0,0" VerticalAlignment="Top" Width="270" FontSize="15"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="440,151,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="270"/>
+        <Label Content="Choose receiver" HorizontalAlignment="Left" Margin="440,205,0,0" VerticalAlignment="Top" Width="270" FontSize="15"/>
+
+        <ComboBox HorizontalAlignment="Left" Margin="440,240,0,0" VerticalAlignment="Top" Width="270">
+            <ComboBoxItem>Krzyś</ComboBoxItem>
+            <ComboBoxItem>Joasia</ComboBoxItem>
+            <ComboBoxItem>Michaś</ComboBoxItem>
+            <ComboBoxItem>Wacek</ComboBoxItem>
+        </ComboBox>
+        <ProgressBar HorizontalAlignment="Left" Height="33" Margin="43,366,0,0" VerticalAlignment="Top" Width="667"/>
+        <ProgressBar HorizontalAlignment="Left" Height="10" Margin="756,591,-96,-156" VerticalAlignment="Top" Width="100"/>
+        <Button Content="ENCODE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,297,0,0" Height="39" Click="StartEncoding" FontSize="20" FontWeight="Bold"/>
+        <Button Content="Open decipher" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,50,0,0" Height="37" Click="openDecipherWindow"/>
+    </Grid>
+</Window>
