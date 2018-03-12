@@ -32,8 +32,8 @@ namespace Hakerszyfr
         private void openEncryptionWindow(Object sender, RoutedEventArgs e)
         {
             Encryption encryptionWindow = new Encryption();
-            encryptionWindow.Show();
             this.Hide();
+            encryptionWindow.Show();
         }
 
         public void OnWindowClosing(object sender, CancelEventArgs e)
@@ -54,11 +54,11 @@ namespace Hakerszyfr
             }
         }
 
-        private void StartDecoding(Object sender, RoutedEventArgs e)
+        private void StartDecrypting(Object sender, RoutedEventArgs e)
         {
             if (filename == null)
             {
-                MessageBox.Show("No file chosen");
+                MessageBox.Show("No file chosen", "Cryptographer", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

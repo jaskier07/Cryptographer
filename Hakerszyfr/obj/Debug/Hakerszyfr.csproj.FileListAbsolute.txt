@@ -16,3 +16,4 @@ C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\E
 C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\Encryption.baml
 C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\Decipher.g.cs
 C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\Decipher.baml
+C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\bin\Debug\Cryptographer.exe.config

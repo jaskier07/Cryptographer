@@ -5,16 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hakerszyfr"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Closing="OnWindowClosing"
         Title="DecipherENCRYPTIONENCRYPTION" Height="475" Width="770">
     <Grid>
-        <Label Content="DECIPHER" HorizontalAlignment="Left" Margin="43,34,0,0" VerticalAlignment="Top" Height="67" Width="303" FontSize="40"/>
+        <Label Content="DECRYPTION" HorizontalAlignment="Left" Margin="43,34,0,0" VerticalAlignment="Top" Height="67" Width="303" FontSize="40" FontWeight="Bold" Padding="0,5,5,5"/>
         <Label HorizontalAlignment="Left" Margin="43,106,0,0" VerticalAlignment="Top">
-            <Label Content="Choose file" FontSize="15" Width="239"/>
+            <Label Content="Choose file" FontSize="15" Width="239" Margin="-6,0,0,0" Padding="0,5,5,5"/>
         </Label>
         <Label Name="chosenFileLabel" Content="" HorizontalAlignment="Left" Margin="140,148,0,0" VerticalAlignment="Top" Width="190" Height="33" FontSize="15"/>
         <Button Content="Browse" Click="openFile" HorizontalAlignment="Left" Margin="43,151,0,0" VerticalAlignment="Top" Width="75" FontSize="15"/>
-        <Label Content="Choose receiver" HorizontalAlignment="Left" Margin="429,118,0,0" VerticalAlignment="Top" Width="270" FontSize="15"/>
+        <Label Content="Choose receiver" HorizontalAlignment="Left" Margin="429,118,0,0" VerticalAlignment="Top" Width="270" FontSize="15" Padding="0,5,5,5"/>
         <ComboBox HorizontalAlignment="Left" Margin="429,153,0,0" VerticalAlignment="Top" Width="270">
             <ComboBoxItem Content="Krzyś"/>
             <ComboBoxItem Content="Joasia"/>
@@ -22,7 +23,7 @@
             <ComboBoxItem Content="Wacek"/>
         </ComboBox>
         <ProgressBar HorizontalAlignment="Left" Height="33" Margin="43,366,0,0" VerticalAlignment="Top" Width="667"/>
-        <Button Content="DECODE" Click="StartDecoding" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,297,0,0" Height="39" FontSize="20" FontWeight="Bold"/>
+        <Button Content="DECRYPT" Click="StartDecrypting" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,297,0,0" Height="39" FontSize="20" FontWeight="Bold" Background="#FF873FC3"/>
         <Button Content="Open encryption" Click="openEncryptionWindow" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,50,0,0" Height="37"/>
 
     </Grid>

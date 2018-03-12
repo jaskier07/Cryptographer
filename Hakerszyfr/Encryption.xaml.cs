@@ -46,15 +46,15 @@ namespace Hakerszyfr
         {
             if (filename == null)
             {
-               MessageBox.Show("No file chosen");
+               MessageBox.Show("No file chosen", "Cryptographer", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void openDecipherWindow(Object sender, RoutedEventArgs e)
         {
             Decipher decipherWindow = new Decipher();
-            decipherWindow.Show();
             this.Hide();
+            decipherWindow.Show();
         }
 
         public void OnWindowClosing(object sender, CancelEventArgs e)

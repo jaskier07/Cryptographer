@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hakerszyfr", "Hakerszyfr\Hakerszyfr.csproj", "{37E21220-03E6-4189-A3E0-8AC48139E070}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cryptographer", "Hakerszyfr\Cryptographer.csproj", "{37E21220-03E6-4189-A3E0-8AC48139E070}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

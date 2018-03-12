@@ -24,15 +24,15 @@ namespace Hakerszyfr
         private void openEncryptionWindow(Object sender, RoutedEventArgs e)
         {
             Encryption encryptionWindow = new Encryption();
-            encryptionWindow.Show();
             this.Hide();
+            encryptionWindow.Show();
         }
 
         private void openDecipherWindow(Object sender, RoutedEventArgs e)
         {
             Decipher decipherWindow = new Decipher();
-            decipherWindow.Show();
             this.Hide();
+            decipherWindow.Show();
         }
 
         public MainWindow()

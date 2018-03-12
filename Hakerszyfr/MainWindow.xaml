@@ -5,12 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hakerszyfr"
         mc:Ignorable="d"
-        Title="MainWindow" Height="475" Width="770
+        WindowStartupLocation="CenterScreen"
+        Title="Cryptographer" Height="475" Width="770
         ">
     <Grid Margin="0,0,0,-83">
         <Image Source="Image1.png" Stretch="Fill" Margin="0,0,10,79"/>
-        <Button Content="ENCRYPTION" Click="openEncryptionWindow" HorizontalAlignment="Left" Margin="31,306,0,0" VerticalAlignment="Top" Width="290" Height="56" FontSize="30" FontWeight="Bold" Background="#FFD64D79"/>
-        <Button Content="DECIPHER" Click="openDecipherWindow" HorizontalAlignment="Left" Margin="442,306,0,0" VerticalAlignment="Top" Width="276" Height="56" FontSize="30" FontWeight="Bold" Background="#FF873FC3" RenderTransformOrigin="-0.358,-0.625"/>
+        <Button Content="ENCRYPTION" Click="openEncryptionWindow" HorizontalAlignment="Left" Margin="40,306,0,0" VerticalAlignment="Top" Width="290" Height="56" FontSize="30" BorderBrush="#FF625C99" FontWeight="Bold" Foreground="#FD0E0505">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF873FC3"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="DECRYPTION" Click="openDecipherWindow" HorizontalAlignment="Left" Margin="426,306,0,0" VerticalAlignment="Top" Width="290" Height="56" FontSize="30" FontWeight="Bold" RenderTransformOrigin="-0.358,-0.625" BorderBrush="#FF625C99">
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF843EC0"/>
+                    <GradientStop Color="#FF873FC3"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>
