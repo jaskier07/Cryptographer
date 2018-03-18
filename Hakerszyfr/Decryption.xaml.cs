@@ -1,24 +1,10 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Hakerszyfr
 {
-    /// <summary>
-    /// Interaction logic for Decipher.xaml
-    /// </summary>
     public partial class Decipher : Window
     {
         private String filename;
@@ -27,18 +13,19 @@ namespace Hakerszyfr
         public Decipher()
         {
             InitializeComponent();
+            usersListView.ItemsSource = MainWindow.users;
         }
 
         private void openEncryptionWindow(Object sender, RoutedEventArgs e)
         {
             Encryption encryptionWindow = new Encryption();
-            this.Hide();
+            Close();
             encryptionWindow.Show();
         }
 
         public void OnWindowClosing(object sender, CancelEventArgs e)
         {
-            System.Windows.Application.Current.Shutdown();
+            Application.Current.Shutdown();
         }
 
         private void openFile(Object sender, RoutedEventArgs e)

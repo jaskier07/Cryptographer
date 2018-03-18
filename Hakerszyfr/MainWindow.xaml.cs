@@ -1,37 +1,25 @@
-﻿using System;
+﻿using Cryptographer;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
 
 namespace Hakerszyfr
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        public static List<User> users = new List<User>();
+
         private void openEncryptionWindow(Object sender, RoutedEventArgs e)
         {
             Encryption encryptionWindow = new Encryption();
-            this.Hide();
+            Hide();
             encryptionWindow.Show();
         }
 
         private void openDecipherWindow(Object sender, RoutedEventArgs e)
         {
             Decipher decipherWindow = new Decipher();
-            this.Hide();
+            Hide();
             decipherWindow.Show();
         }
 

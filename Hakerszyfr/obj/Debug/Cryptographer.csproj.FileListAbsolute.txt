@@ -1,18 +1,40 @@
-C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\bin\Debug\Cryptographer.exe.config
-C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\bin\Debug\Cryptographer.exe
-C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\bin\Debug\Cryptographer.pdb
-C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\Cryptographer.csprojResolveAssemblyReference.cache
 C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\Decryption.g.cs
 C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\MainWindow.g.cs
 C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\Encryption.g.cs
+C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\NewUserWindow.g.cs
 C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\App.g.cs
 C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\Cryptographer_MarkupCompile.cache
 C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\Cryptographer_MarkupCompile.lref
+C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\bin\Debug\Cryptographer.exe.config
+C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\bin\Debug\Cryptographer.exe
+C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\bin\Debug\Cryptographer.pdb
 C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\Decryption.baml
 C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\MainWindow.baml
 C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\Encryption.baml
+C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\NewUserWindow.baml
 C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\Cryptographer.g.resources
 C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\Cryptographer.Properties.Resources.resources
 C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\Cryptographer.csproj.GenerateResource.Cache
 C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\Cryptographer.exe
 C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\Cryptographer.pdb
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\bin\Debug\Cryptographer.exe.config
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\bin\Debug\Cryptographer.exe
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\bin\Debug\Cryptographer.pdb
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\obj\Debug\Cryptographer.csprojResolveAssemblyReference.cache
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\obj\Debug\Decryption.g.cs
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\obj\Debug\MainWindow.g.cs
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\obj\Debug\Encryption.g.cs
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\obj\Debug\NewUserWindow.g.cs
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\obj\Debug\App.g.cs
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\obj\Debug\Cryptographer_MarkupCompile.cache
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\obj\Debug\Cryptographer_MarkupCompile.lref
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\obj\Debug\Decryption.baml
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\obj\Debug\MainWindow.baml
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\obj\Debug\Encryption.baml
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\obj\Debug\NewUserWindow.baml
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\obj\Debug\Cryptographer.g.resources
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\obj\Debug\Cryptographer.Properties.Resources.resources
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\obj\Debug\Cryptographer.csproj.GenerateResource.cache
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\obj\Debug\Cryptographer.csproj.CoreCompileInputs.cache
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\obj\Debug\Cryptographer.exe
+C:\Users\Tomasz\Desktop\Hakerszyfr\Hakerszyfr\obj\Debug\Cryptographer.pdb

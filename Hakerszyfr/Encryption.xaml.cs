@@ -1,38 +1,33 @@
-﻿using Microsoft.Win32;
+﻿using Cryptographer;
+using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Hakerszyfr
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
     public partial class Encryption : Window
     {
         private String filename;
         private String filepath;
 
         public Encryption()
-        {
+        {         
             InitializeComponent();
+            usersListView.ItemsSource = MainWindow.users;
+        }
+
+        private void AddNewUser(Object sender, RoutedEventArgs e)
+        {
+            NewUserWindow newUserWindow = new NewUserWindow(this);
+            newUserWindow.Show();            
         }
 
         private void openFile(Object sender, RoutedEventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
-            Nullable<bool> result = dlg.ShowDialog();
+            bool? result = dlg.ShowDialog();
 
             if (result == true)
             {
@@ -53,7 +48,7 @@ namespace Hakerszyfr
         private void openDecipherWindow(Object sender, RoutedEventArgs e)
         {
             Decipher decipherWindow = new Decipher();
-            this.Hide();
+            Close();
             decipherWindow.Show();
         }
 
@@ -83,6 +78,11 @@ namespace Hakerszyfr
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
 
         }
