@@ -1,0 +1,21 @@
+﻿<Window x:Class="Cryptographer.LoginOrRegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cryptographer"
+        mc:Ignorable="d"
+        Title="LoginOrRegisterWindow" Height="450" Width="800">
+    <Grid Background="Azure">
+        <Image Source="Image1.png" Stretch="Fill"/>
+        <Label Background="BlueViolet" Content="Login to program if you have already created account&#xD;&#xA;" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="15,125,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="163,125,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="120"/>
+        <Button Click="LoginAction" Content="Login" HorizontalAlignment="Left" Margin="314,125,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
+        <Button Click="RegisterAction" Content="Register" HorizontalAlignment="Left" Margin="314,255,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
+        <Grid HorizontalAlignment="Left" Height="100" Margin="138,209,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="15,256,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="163,256,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="120"/>
+        <Label Background="BlueViolet" Content="If you have no account register new one&#xD;&#xA;" HorizontalAlignment="Left" Margin="16,167,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+          </Grid>
+</Window>

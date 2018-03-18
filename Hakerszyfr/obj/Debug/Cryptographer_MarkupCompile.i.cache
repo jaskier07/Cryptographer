@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\obj\Debug\
+C:\Users\Tomasz\Documents\Cryptographer\Hakerszyfr\obj\Debug\
 Cryptographer
 none
 false
 DEBUG;TRACE
-C:\Users\alexp\OneDrive\Stoodia\VI semestr\BSK\Hakerszyfr\Hakerszyfr\App.xaml
-4859450400
+C:\Users\Tomasz\Documents\Cryptographer\Hakerszyfr\App.xaml
+51122189232
 
-131117482624
+14-545971592
 13738642453
-Decryption.xaml;MainWindow.xaml;Encryption.xaml;NewUserWindow.xaml;
+Decryption.xaml;LoginOrRegisterWindow.xaml;MainWindow.xaml;Encryption.xaml;NewUserWindow.xaml;
 
-True
+False
 

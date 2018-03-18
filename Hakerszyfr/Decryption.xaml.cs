@@ -16,10 +16,10 @@ namespace Hakerszyfr
             usersListView.ItemsSource = MainWindow.users;
         }
 
-        private void openEncryptionWindow(Object sender, RoutedEventArgs e)
+        private void OpenEncryptionWindow(Object sender, RoutedEventArgs e)
         {
+            Hide();
             Encryption encryptionWindow = new Encryption();
-            Close();
             encryptionWindow.Show();
         }
 
@@ -28,10 +28,10 @@ namespace Hakerszyfr
             Application.Current.Shutdown();
         }
 
-        private void openFile(Object sender, RoutedEventArgs e)
+        private void OpenFile(Object sender, RoutedEventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
-            Nullable<bool> result = dlg.ShowDialog();
+            bool? result = dlg.ShowDialog();
 
             if (result == true)
             {

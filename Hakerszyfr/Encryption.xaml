@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Hakerszyfr"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Closing="OnWindowClosing"
@@ -14,7 +13,7 @@
             <Label Content="Choose file" FontSize="15" Width="239" Padding="0,5,5,5"/>
         </Label>
         <Label Name="chosenFileLabel" Content="" HorizontalAlignment="Left" Margin="140,130,0,0" VerticalAlignment="Top" Width="216" Height="33" FontSize="15"/>
-        <Button Click="openFile" Content="Browse" HorizontalAlignment="Left" Margin="43,133,0,0" VerticalAlignment="Top" Width="75" FontSize="15"/>
+        <Button Click="OpenFile" Content="Browse" HorizontalAlignment="Left" Margin="43,133,0,0" VerticalAlignment="Top" Width="75" FontSize="15"/>
         <Label Content="Choose cipher mode" HorizontalAlignment="Left" Margin="43,242,0,0" VerticalAlignment="Top" Width="249" FontSize="15" Padding="0,5,5,5"/>
         <RadioButton Content="ECB" HorizontalAlignment="Left" Margin="43,277,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
         <RadioButton Content="CBC" HorizontalAlignment="Left" Margin="43,297,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked_1"/>
@@ -26,14 +25,14 @@
         <ProgressBar HorizontalAlignment="Left" Height="33" Margin="43,366,0,0" VerticalAlignment="Top" Width="667"/>
         <ProgressBar HorizontalAlignment="Left" Height="10" Margin="756,591,-96,-156" VerticalAlignment="Top" Width="100"/>
         <Button Content="ENCODE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,297,0,0" Height="39" Click="StartEncoding" FontSize="20" FontWeight="Bold" Background="#FF873FC3"/>
-        <Button Content="Open decipher" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,50,0,0" Height="37" Click="openDecipherWindow"/>
-        <ListView Name="usersListView" HorizontalAlignment="Left" Height="95" Margin="440,133,0,0" VerticalAlignment="Top" Width="270">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="email" DisplayMemberBinding="{Binding email}" Width="200"></GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <Button Content="Open decipher" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,34,0,0" Height="37" Click="OpenDecipherWindow"/>
         <Button Content="Add new receiver" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,242,0,0" Click="AddNewUser" Height="30"/>
+        <ListBox Name="usersBox" HorizontalAlignment="Left" Height="100" Margin="440,123,0,0" VerticalAlignment="Top" Width="270">
+            <ListBoxItem Content="tomasz@interia.pl"></ListBoxItem>
+            <ListBoxItem Content="krzysztof@wp.pl"></ListBoxItem>
+            <ListBoxItem Content="julia@gmail.com"></ListBoxItem>
+            <ListBoxItem Content="adrianna@o2.pl"></ListBoxItem>
+        </ListBox>
+        <Button Content="Log to account" HorizontalAlignment="Left" Margin="368,34,0,0" VerticalAlignment="Top" Width="146" Height="37" Click="Button_Click_3"/>
     </Grid>
 </Window>

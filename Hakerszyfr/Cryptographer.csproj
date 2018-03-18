@@ -61,11 +61,18 @@
     <Compile Include="Encryption.xaml.cs">
       <DependentUpon>Encryption.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LoginOrRegisterWindow.xaml.cs">
+      <DependentUpon>LoginOrRegisterWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NewUserWindow.xaml.cs">
       <DependentUpon>NewUserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Page Include="Decryption.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginOrRegisterWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

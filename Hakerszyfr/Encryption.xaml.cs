@@ -13,18 +13,18 @@ namespace Hakerszyfr
         private String filepath;
 
         public Encryption()
-        {         
+        {
             InitializeComponent();
-            usersListView.ItemsSource = MainWindow.users;
+            usersBox.SelectionMode = SelectionMode.Multiple;
         }
 
         private void AddNewUser(Object sender, RoutedEventArgs e)
         {
             NewUserWindow newUserWindow = new NewUserWindow(this);
-            newUserWindow.Show();            
+            newUserWindow.Show();
         }
 
-        private void openFile(Object sender, RoutedEventArgs e)
+        private void OpenFile(Object sender, RoutedEventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
             bool? result = dlg.ShowDialog();
@@ -41,48 +41,42 @@ namespace Hakerszyfr
         {
             if (filename == null)
             {
-               MessageBox.Show("No file chosen", "Cryptographer", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No file chosen", "Cryptographer", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
-        private void openDecipherWindow(Object sender, RoutedEventArgs e)
+        private void OpenDecipherWindow(Object sender, RoutedEventArgs e)
         {
+            Hide();
             Decipher decipherWindow = new Decipher();
-            Close();
             decipherWindow.Show();
         }
 
         public void OnWindowClosing(object sender, CancelEventArgs e)
         {
-            System.Windows.Application.Current.Shutdown();
+            Application.Current.Shutdown();
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
+        { }
 
         private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
-        {
+        { }
 
-        }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
+        { }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        { }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
+        { }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
+        { }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
         {
 
         }

@@ -3,14 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Hakerszyfr"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="Cryptographer" Height="475" Width="770
         ">
     <Grid Margin="0,0,0,-83">
         <Image Source="Image1.png" Stretch="Fill" Margin="0,0,10,79"/>
-        <Button Content="ENCRYPTION" Click="openEncryptionWindow" HorizontalAlignment="Left" Margin="40,306,0,0" VerticalAlignment="Top" Width="290" Height="56" FontSize="30" BorderBrush="#FF625C99" FontWeight="Bold" Foreground="#FD0E0505">
+        <Button Content="ENCRYPTION" Click="OpenEncryptionWindow" HorizontalAlignment="Left" Margin="40,306,0,0" VerticalAlignment="Top" Width="290" Height="56" FontSize="30" BorderBrush="#FF625C99" FontWeight="Bold" Foreground="#FD0E0505">
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Color="Black" Offset="1"/>
@@ -18,7 +17,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="DECRYPTION" Click="openDecipherWindow" HorizontalAlignment="Left" Margin="426,306,0,0" VerticalAlignment="Top" Width="290" Height="56" FontSize="30" FontWeight="Bold" RenderTransformOrigin="-0.358,-0.625" BorderBrush="#FF625C99">
+        <Button Content="DECRYPTION" Click="OpenDecipherWindow" HorizontalAlignment="Left" Margin="426,306,0,0" VerticalAlignment="Top" Width="290" Height="56" FontSize="30" FontWeight="Bold" RenderTransformOrigin="-0.358,-0.625" BorderBrush="#FF625C99">
             <Button.Background>
                 <RadialGradientBrush>
                     <GradientStop Color="Black" Offset="1"/>

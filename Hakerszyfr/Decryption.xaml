@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Hakerszyfr"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Closing="OnWindowClosing"
@@ -14,18 +13,19 @@
             <Label Content="Choose file" FontSize="15" Width="239" Margin="-6,0,0,0" Padding="0,5,5,5"/>
         </Label>
         <Label Name="chosenFileLabel" Content="" HorizontalAlignment="Left" Margin="140,148,0,0" VerticalAlignment="Top" Width="190" Height="33" FontSize="15"/>
-        <Button Content="Browse" Click="openFile" HorizontalAlignment="Left" Margin="43,151,0,0" VerticalAlignment="Top" Width="75" FontSize="15"/>
-        <Label Content="Choose receiver" HorizontalAlignment="Left" Margin="429,118,0,0" VerticalAlignment="Top" Width="270" FontSize="15" Padding="0,5,5,5"/>
+        <Button Content="Browse" Click="OpenFile" HorizontalAlignment="Left" Margin="43,151,0,0" VerticalAlignment="Top" Width="75" FontSize="15"/>
         <ProgressBar HorizontalAlignment="Left" Height="33" Margin="43,366,0,0" VerticalAlignment="Top" Width="667"/>
         <Button Content="DECRYPT" Click="StartDecrypting" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,297,0,0" Height="39" FontSize="20" FontWeight="Bold" Background="#FF873FC3"/>
-        <Button Content="Open encryption" Click="openEncryptionWindow" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,50,0,0" Height="37"/>
-        <ListView Name="usersListView" HorizontalAlignment="Left" Height="115" Margin="429,153,0,0" VerticalAlignment="Top" Width="281">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Receiver"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <Button Content="Open encryption" Click="OpenEncryptionWindow" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,50,0,0" Height="37"/>
+        <Label Content="Choose receiver" HorizontalAlignment="Left" Margin="440,93,0,0" VerticalAlignment="Top" Width="270" FontSize="15" Padding="0,5,5,5"/>
+        <Button Content="Add new receiver" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,242,0,0" Click="AddNewUser" Height="30"/>
+        <ListBox x:Name="usersBox" HorizontalAlignment="Left" Height="100" Margin="440,123,0,0" VerticalAlignment="Top" Width="270">
+            <ListBoxItem Content="tomasz@interia.pl"/>
+            <ListBoxItem Content="krzysztof@wp.pl"/>
+            <ListBoxItem Content="julia@gmail.com"/>
+            <ListBoxItem Content="adrianna@o2.pl"/>
+        </ListBox>
+        <Button Content="Log to account" HorizontalAlignment="Left" Margin="368,34,0,0" VerticalAlignment="Top" Width="146" Height="37" Click="Button_Click_3"/>
 
     </Grid>
 </Window>
