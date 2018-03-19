@@ -5,17 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cryptographer"
         mc:Ignorable="d"
-        Title="LoginOrRegisterWindow" Height="450" Width="800">
-    <Grid Background="Azure">
-        <Image Source="Image1.png" Stretch="Fill"/>
-        <Label Background="BlueViolet" Content="Login to program if you have already created account&#xD;&#xA;" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="15,125,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="163,125,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="120"/>
-        <Button Click="LoginAction" Content="Login" HorizontalAlignment="Left" Margin="314,125,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-        <Button Click="RegisterAction" Content="Register" HorizontalAlignment="Left" Margin="314,255,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold"/>
-        <Grid HorizontalAlignment="Left" Height="100" Margin="138,209,0,0" VerticalAlignment="Top" Width="100"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="15,256,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="163,256,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="120"/>
-        <Label Background="BlueViolet" Content="If you have no account register new one&#xD;&#xA;" HorizontalAlignment="Left" Margin="16,167,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
-          </Grid>
+        Title="Entry" Height="446" Width="417.5">
+    <Grid Margin="0,0,15,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="37*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Login to program if you have already created account&#xD;&#xA;" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Height="47" Width="363"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="122,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="122,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Click="LoginAction" Content="Login" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Grid.Row="1" Height="20"/>
+        <Button Click="RegisterAction" Content="Register" HorizontalAlignment="Left" Margin="14,190,0,0" VerticalAlignment="Top" Width="76" FontWeight="Bold" Grid.Row="1" Height="20"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="122,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="122,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1"/>
+        <Label Content="If you have no account register new one&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,48,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Grid.Row="1" Height="47" Width="273"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="15,57,0,0" VerticalAlignment="Top" Width="84" Height="23" FontWeight="Bold"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="15,100,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="63"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="14,100,0,0" VerticalAlignment="Top" Width="84" Height="23" FontWeight="Bold" Grid.Row="1"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="14,143,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Row="1" Height="26" Width="63"/>
+    </Grid>
 </Window>

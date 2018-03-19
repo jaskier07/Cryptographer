@@ -13,8 +13,7 @@ namespace Hakerszyfr
         public Decipher()
         {
             InitializeComponent();
-            usersListView.ItemsSource = MainWindow.users;
-        }
+            }
 
         private void OpenEncryptionWindow(Object sender, RoutedEventArgs e)
         {
@@ -47,6 +46,16 @@ namespace Hakerszyfr
             {
                 MessageBox.Show("No file chosen", "Cryptographer", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void AddNewUser(Object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_3(Object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

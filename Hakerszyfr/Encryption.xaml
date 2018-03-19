@@ -33,6 +33,6 @@
             <ListBoxItem Content="julia@gmail.com"></ListBoxItem>
             <ListBoxItem Content="adrianna@o2.pl"></ListBoxItem>
         </ListBox>
-        <Button Content="Log to account" HorizontalAlignment="Left" Margin="368,34,0,0" VerticalAlignment="Top" Width="146" Height="37" Click="Button_Click_3"/>
+        <Button Content="Log in to another account" HorizontalAlignment="Left" Margin="368,34,0,0" VerticalAlignment="Top" Width="146" Height="37" Click="Button_Click_3"/>
     </Grid>
 </Window>
