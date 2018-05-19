@@ -29,7 +29,8 @@ namespace Hakerszyfr
 
             LoginOrRegisterWindow identyficationWindow = new LoginOrRegisterWindow();
             identyficationWindow.ShowDialog();
-            
+
+            UsersControler userscontroler = new UsersControler();
         }
     }
 }

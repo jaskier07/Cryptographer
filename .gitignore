@@ -1,0 +1,9 @@
+
+*.cache
+*.ide-shm
+.vs/Cryptographer/v15/.suo
+*.exe
+*.pdb
+*.lref
+*.Cache
+Hakerszyfr/obj/Debug/Cryptographer.csproj.FileListAbsolute.txt

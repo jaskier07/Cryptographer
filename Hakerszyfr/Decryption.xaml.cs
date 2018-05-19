@@ -13,7 +13,7 @@ namespace Hakerszyfr
         public Decipher()
         {
             InitializeComponent();
-            }
+        }
 
         private void OpenEncryptionWindow(Object sender, RoutedEventArgs e)
         {
