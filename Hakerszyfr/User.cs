@@ -4,22 +4,21 @@ namespace Cryptographer
 {
     public class User
     {
-        public String login;
-        public String password;
         public String email;
+        public String password;
         public String publicKey;
         public String privateKey;
 
         public User(String password, String email)
         {
-            this.password = password;
             this.email = email;
+            this.password = password;
         }
-        public User(String login, String password, String email, String publicKey, String privateKey)
+
+        public User(String email, String password, String publicKey, String privateKey)
         {
-            this.login = login;
-            this.password = password;
             this.email = email;
+            this.password = password;
             this.publicKey = publicKey;
             this.privateKey = privateKey;
         }

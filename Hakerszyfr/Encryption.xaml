@@ -25,7 +25,7 @@
         <ProgressBar HorizontalAlignment="Left" Height="33" Margin="43,366,0,0" VerticalAlignment="Top" Width="667"/>
         <ProgressBar HorizontalAlignment="Left" Height="10" Margin="756,591,-96,-156" VerticalAlignment="Top" Width="100"/>
         <Button Content="ENCODE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,297,0,0" Height="39" Click="StartEncoding" FontSize="20" FontWeight="Bold" Background="#FF873FC3"/>
-        <Button Content="Open decipher" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,34,0,0" Height="37" Click="OpenDecipherWindow"/>
+        <Button Content="Open decipher" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,48,0,0" Height="37" Click="OpenDecipherWindow"/>
         <Button Content="Add new receiver" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,242,0,0" Click="AddNewUser" Height="30"/>
         <ListBox Name="usersBox" HorizontalAlignment="Left" Height="100" Margin="440,123,0,0" VerticalAlignment="Top" Width="270">
             <ListBoxItem Content="tomasz@interia.pl"></ListBoxItem>
@@ -33,6 +33,7 @@
             <ListBoxItem Content="julia@gmail.com"></ListBoxItem>
             <ListBoxItem Content="adrianna@o2.pl"></ListBoxItem>
         </ListBox>
-        <Button Content="Log in to another account" HorizontalAlignment="Left" Margin="368,34,0,0" VerticalAlignment="Top" Width="146" Height="37" Click="Button_Click_3"/>
+        <Button Content="Log in to another account" HorizontalAlignment="Left" Margin="391,48,0,0" VerticalAlignment="Top" Width="160" Height="37" Click="Button_Click_3"/>
+        <Label Name="LogOutButton" Content="Current user email" HorizontalAlignment="Left" Height="33" Margin="391,0,0,0" VerticalAlignment="Top" Width="319"/>
     </Grid>
 </Window>

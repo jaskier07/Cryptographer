@@ -7,7 +7,7 @@ namespace Hakerszyfr
 {
     public partial class MainWindow : Window
     {
-        public static List<User> users = new List<User>();
+//        public static List<User> users = new List<User>(); // TODO DELETE
        
         private void OpenEncryptionWindow(Object sender, RoutedEventArgs e)
         {
@@ -26,11 +26,9 @@ namespace Hakerszyfr
         public MainWindow()
         {
             InitializeComponent();
-
+            UsersControler userscontroler = new UsersControler();
             LoginOrRegisterWindow identyficationWindow = new LoginOrRegisterWindow();
             identyficationWindow.ShowDialog();
-
-            UsersControler userscontroler = new UsersControler();
         }
     }
 }

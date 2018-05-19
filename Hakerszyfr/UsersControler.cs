@@ -5,7 +5,8 @@ namespace Cryptographer
 {
     public class UsersControler
     {
-        List<User> usersList = new List<User>();
+        public static List<User> usersList = new List<User>();
+        public static User currentUser = null;
 
         public UsersControler()
         {
@@ -14,7 +15,7 @@ namespace Cryptographer
             foreach (string line in usersCredentials)
             {
                 String[] userData = line.Split('|');
-                usersList.Add(new User(userData[0], userData[1], userData[2], userData[3], userData[4])); //login,password,email,publicKey,privateKey    
+                usersList.Add(new User(userData[0], userData[1], userData[2], userData[3])); // email, password, publicKey, privateKey    
             }
         }
     }

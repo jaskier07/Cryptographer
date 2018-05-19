@@ -20,8 +20,8 @@ namespace Cryptographer
 
         private void AddNewUser(object sender, RoutedEventArgs e)
         {
-            User user = new User(password.Text, email.Text);
-            MainWindow.users.Add(user);
+//User user = new User(password.Text, email.Text); //TODO
+        //    MainWindow.users.Add(user);
 
             Close();
         }

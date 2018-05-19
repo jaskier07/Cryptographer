@@ -15,6 +15,7 @@ namespace Hakerszyfr
         public Encryption()
         {
             InitializeComponent();
+            LogOutButton.Content = UsersControler.currentUser.email;
             usersBox.SelectionMode = SelectionMode.Multiple;
         }
 

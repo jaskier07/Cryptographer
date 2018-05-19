@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using Cryptographer;
+using Microsoft.Win32;
 using System;
 using System.ComponentModel;
 using System.Windows;
@@ -13,6 +14,7 @@ namespace Hakerszyfr
         public Decipher()
         {
             InitializeComponent();
+            LogOutButton.Content = UsersControler.currentUser.email;
         }
 
         private void OpenEncryptionWindow(Object sender, RoutedEventArgs e)
