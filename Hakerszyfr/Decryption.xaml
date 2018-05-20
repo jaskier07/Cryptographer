@@ -18,7 +18,7 @@
         <Button Content="DECRYPT" Click="StartDecrypting" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,297,0,0" Height="39" FontSize="20" FontWeight="Bold" Background="#FF873FC3"/>
         <Button Content="Open encryption" Click="OpenEncryptionWindow" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,50,0,0" Height="37"/>
         <Label Content="Choose receiver" HorizontalAlignment="Left" Margin="440,93,0,0" VerticalAlignment="Top" Width="270" FontSize="15" Padding="0,5,5,5"/>
-        <Button Content="Add new receiver" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,242,0,0" Click="Button_Click_3" Height="30"/>
+        <Button Content="Add new receiver" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,242,0,0" Height="30"/>
         <ListBox x:Name="usersBox" HorizontalAlignment="Left" Height="100" Margin="440,123,0,0" VerticalAlignment="Top" Width="270">
             <ListBoxItem Content="tomasz@interia.pl"/>
             <ListBoxItem Content="krzysztof@wp.pl"/>

@@ -49,9 +49,8 @@ namespace Hakerszyfr
 
         private void OpenDecipherWindow(Object sender, RoutedEventArgs e)
         {
-            Decipher decipherWindow = new Decipher();
-            decipherWindow.Show();
-            Close();
+            MainWindow.decriptionWindow = new Decipher();
+            MainWindow.decriptionWindow.Show();
         }
 
         public void OnWindowClosing(object sender, CancelEventArgs e)
@@ -76,8 +75,6 @@ namespace Hakerszyfr
                 String[] userData = line.Split('|'); // email, password, publicKey, privateKey    
                 ListBoxItem itm = new ListBoxItem();
                 itm.Content = userData[0];
-
-
                 usersBox.Items.Add(itm);
             }
         }

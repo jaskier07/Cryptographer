@@ -3,6 +3,7 @@ using Microsoft.Win32;
 using System;
 using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Hakerszyfr
 {
@@ -14,14 +15,14 @@ namespace Hakerszyfr
         public Decipher()
         {
             InitializeComponent();
+            UpdateReceiversList();
             LogOutButton.Content = UsersControler.currentUser.email;
         }
 
         private void OpenEncryptionWindow(Object sender, RoutedEventArgs e)
         {
-            Hide();
-            Encryption encryptionWindow = new Encryption();
-            encryptionWindow.Show();
+            MainWindow.encryptionWindow = new Encryption();
+            MainWindow.encryptionWindow.Show();
         }
 
         public void OnWindowClosing(object sender, CancelEventArgs e)
@@ -50,21 +51,24 @@ namespace Hakerszyfr
             }
         }
 
-        private void AddNewUser(Object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_3(Object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void ButtonOpenAuthenticationWindow(object sender, RoutedEventArgs e)
         {
             LoginOrRegisterWindow identyficationWindow = new LoginOrRegisterWindow();
             identyficationWindow.ShowDialog();
             LogOutButton.Content = UsersControler.currentUser.email;
+        }
+        public void UpdateReceiversList()
+        {
+            usersBox.Items.Clear();
+
+            string[] usersData = System.IO.File.ReadAllLines(@"Users login details.txt");
+            foreach (string line in usersData)
+            {
+                String[] userData = line.Split('|'); // email, password, publicKey, privateKey    
+                ListBoxItem itm = new ListBoxItem();
+                itm.Content = userData[0];
+                usersBox.Items.Add(itm);
+            }
         }
     }
 }

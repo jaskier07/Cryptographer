@@ -6,18 +6,19 @@ namespace Hakerszyfr
 {
     public partial class MainWindow : Window
     {
+        public static Encryption encryptionWindow;
+        public static Decipher decriptionWindow;
+
         private void OpenEncryptionWindow(Object sender, RoutedEventArgs e)
         {
             Encryption encryptionWindow = new Encryption();
             encryptionWindow.Show();
-            Close();
         }
 
         private void OpenDecipherWindow(Object sender, RoutedEventArgs e)
         {
             Decipher decipherWindow = new Decipher();
             decipherWindow.Show();
-            Close();
         }
 
         public MainWindow()
