@@ -25,8 +25,7 @@
             <ListBoxItem Content="julia@gmail.com"/>
             <ListBoxItem Content="adrianna@o2.pl"/>
         </ListBox>
-        <Button Content="Log in to another account" HorizontalAlignment="Left" Margin="409,50,0,0" VerticalAlignment="Top" Width="147" Height="37" Click="Button_Click_3"/>
+        <Button Content="Log in to another account" HorizontalAlignment="Left" Margin="409,50,0,0" VerticalAlignment="Top" Width="147" Height="37" Click="ButtonOpenAuthenticationWindow"/>
         <Label Name="LogOutButton" Content="Current user email" HorizontalAlignment="Left" Height="36" Margin="409,0,0,0" VerticalAlignment="Top" Width="301"/>
-
     </Grid>
 </Window>

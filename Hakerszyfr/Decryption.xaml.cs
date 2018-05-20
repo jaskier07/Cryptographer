@@ -59,5 +59,12 @@ namespace Hakerszyfr
         {
 
         }
+
+        private void ButtonOpenAuthenticationWindow(object sender, RoutedEventArgs e)
+        {
+            LoginOrRegisterWindow identyficationWindow = new LoginOrRegisterWindow();
+            identyficationWindow.ShowDialog();
+            LogOutButton.Content = UsersControler.currentUser.email;
+        }
     }
 }

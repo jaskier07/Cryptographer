@@ -15,8 +15,8 @@
         <Label Name="chosenFileLabel" Content="" HorizontalAlignment="Left" Margin="140,130,0,0" VerticalAlignment="Top" Width="216" Height="33" FontSize="15"/>
         <Button Click="OpenFile" Content="Browse" HorizontalAlignment="Left" Margin="43,133,0,0" VerticalAlignment="Top" Width="75" FontSize="15"/>
         <Label Content="Choose cipher mode" HorizontalAlignment="Left" Margin="43,242,0,0" VerticalAlignment="Top" Width="249" FontSize="15" Padding="0,5,5,5"/>
-        <RadioButton Content="ECB" HorizontalAlignment="Left" Margin="43,277,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
-        <RadioButton Content="CBC" HorizontalAlignment="Left" Margin="43,297,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked_1"/>
+        <RadioButton Content="ECB" HorizontalAlignment="Left" Margin="43,277,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="CBC" HorizontalAlignment="Left" Margin="43,297,0,0" VerticalAlignment="Top"/>
         <RadioButton Content="CFB" HorizontalAlignment="Left" Margin="43,317,0,0" VerticalAlignment="Top"/>
         <RadioButton Content="OFB" HorizontalAlignment="Left" Margin="43,337,0,0" VerticalAlignment="Top"/>
         <Label Content="Result filename" HorizontalAlignment="Left" Margin="43,168,0,0" VerticalAlignment="Top" Width="270" FontSize="15" Padding="0,5,5,5"/>
@@ -33,7 +33,7 @@
             <ListBoxItem Content="julia@gmail.com"></ListBoxItem>
             <ListBoxItem Content="adrianna@o2.pl"></ListBoxItem>
         </ListBox>
-        <Button Content="Log in to another account" HorizontalAlignment="Left" Margin="391,48,0,0" VerticalAlignment="Top" Width="160" Height="37" Click="Button_Click_3"/>
-        <Label Name="LogOutButton" Content="Current user email" HorizontalAlignment="Left" Height="33" Margin="391,0,0,0" VerticalAlignment="Top" Width="319"/>
+        <Button Content="Log in to another account" HorizontalAlignment="Left" Margin="415,48,0,0" VerticalAlignment="Top" Width="136" Height="37" Click="ButtonOpenAuthenticationWindow"/>
+        <Label Name="LogOutButton" Content="Current user email" HorizontalAlignment="Left" Height="33" Margin="415,0,0,0" VerticalAlignment="Top" Width="295"/>
     </Grid>
 </Window>

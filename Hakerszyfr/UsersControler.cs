@@ -15,7 +15,7 @@ namespace Cryptographer
             foreach (string line in usersCredentials)
             {
                 String[] userData = line.Split('|');
-                usersList.Add(new User(userData[0], userData[1], userData[2], userData[3])); // email, password, publicKey, privateKey    
+                usersList.Add(new User(userData[0], userData[1], userData[2])); // email, password, rsaKey
             }
         }
     }

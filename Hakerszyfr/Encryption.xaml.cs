@@ -16,6 +16,7 @@ namespace Hakerszyfr
         {
             InitializeComponent();
             LogOutButton.Content = UsersControler.currentUser.email;
+            UpdateReceiversList();
             usersBox.SelectionMode = SelectionMode.Multiple;
         }
 
@@ -48,9 +49,9 @@ namespace Hakerszyfr
 
         private void OpenDecipherWindow(Object sender, RoutedEventArgs e)
         {
-            Hide();
             Decipher decipherWindow = new Decipher();
             decipherWindow.Show();
+            Close();
         }
 
         public void OnWindowClosing(object sender, CancelEventArgs e)
@@ -58,28 +59,31 @@ namespace Hakerszyfr
             Application.Current.Shutdown();
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        { }
-
-        private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
-        { }
-
-
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        { }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        { }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        { }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        { }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void ButtonOpenAuthenticationWindow(object sender, RoutedEventArgs e)
         {
+            LoginOrRegisterWindow identyficationWindow = new LoginOrRegisterWindow();
+            identyficationWindow.ShowDialog();
+            LogOutButton.Content = UsersControler.currentUser.email;
+        }
 
+        public void UpdateReceiversList()
+        {
+            usersBox.Items.Clear();
+
+            string[] usersData = System.IO.File.ReadAllLines(@"Users login details.txt");
+            foreach (string line in usersData)
+            {
+                String[] userData = line.Split('|'); // email, password, publicKey, privateKey    
+                ListBoxItem itm = new ListBoxItem();
+                itm.Content = userData[0];
+
+
+                usersBox.Items.Add(itm);
+            }
         }
     }
 }
+
+
+
+
