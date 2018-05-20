@@ -6,7 +6,7 @@ namespace Cryptographer
 {
     class AESCryptography
     {
-        static byte[] EncryptStringToBytes(string plainText, byte[] Key, byte[] IV)
+        public static byte[] EncryptStringToBytes(string plainText, byte[] Key, byte[] IV, CipherMode cipherMode)
         {
             if (plainText == null || plainText.Length <= 0)
                 throw new ArgumentNullException("plainText");
@@ -21,7 +21,7 @@ namespace Cryptographer
             {
                 rijAlg.Key = Key;
                 rijAlg.IV = IV;
-
+                rijAlg.Mode = cipherMode;
                 // Create a decryptor to perform the stream transform.
                 ICryptoTransform encryptor = rijAlg.CreateEncryptor(rijAlg.Key, rijAlg.IV);
 
@@ -43,7 +43,7 @@ namespace Cryptographer
             return encrypted;
         }
 
-        static string DecryptStringFromBytes(byte[] cipherText, byte[] Key, byte[] IV)
+        public static string DecryptStringFromBytes(byte[] cipherText, byte[] Key, byte[] IV, CipherMode cipherMode)
         {
             // Check arguments. 
             if (cipherText == null || cipherText.Length <= 0)
@@ -63,7 +63,7 @@ namespace Cryptographer
             {
                 rijAlg.Key = Key;
                 rijAlg.IV = IV;
-             //   aesAlg.Mode = CipherMode.CBC; TODO
+                rijAlg.Mode = cipherMode;
 
                 // Create a decrytor to perform the stream transform.
                 ICryptoTransform decryptor = rijAlg.CreateDecryptor(rijAlg.Key, rijAlg.IV);

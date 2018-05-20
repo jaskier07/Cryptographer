@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EncryptedFileHeader>
+  <Algorithm>TODO</Algorithm>
+  <KeySize>TODO</KeySize>
+  <BlockSize>TODO</BlockSize>
+  <CipherMode>CFB</CipherMode>
+  <IV>TODO</IV>
+  <ApprovedUsers>
+    <User>
+      <Email>qwertyu@wp.pl</Email>
+      <SessionKey>TODO</SessionKey>
+    </User>
+    <User>
+      <Email>tomasz@wp.pl</Email>
+      <SessionKey>TODO</SessionKey>
+    </User>
+  </ApprovedUsers>
+</EncryptedFileHeader>

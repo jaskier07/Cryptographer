@@ -3,9 +3,11 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Security.Cryptography;
 using System.Windows;
 using System.Windows.Controls;
+using System.Xml.Linq;
 
 namespace Hakerszyfr
 {
@@ -92,10 +94,45 @@ namespace Hakerszyfr
                 MessageBox.Show("No receiver choosen", "Cryptographer", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            byte[] generatedIV = null;
+
+            RSA sessionKey = new RSACryptoServiceProvider(2048); // Generate a new 2048 bit RSA key
+            using (RijndaelManaged myRijndael = new RijndaelManaged())
+            {
+
+                myRijndael.GenerateKey();
+                myRijndael.GenerateIV();
+                generatedIV =  myRijndael.IV;
+            }
+                var approvedUsers = new XElement("ApprovedUsers");
+            foreach (var user in encryptionUsers)
+            {
+                approvedUsers.Add(new XElement("User",
+                          new XElement("Email", user.email),
+                          new XElement("SessionKey",
+                          AESCryptography.EncryptStringToBytes(sessionKey, (byte[])user.rsaKey /*TODO retrieve user*/ , byte[] IV,)
+      user.rsaKey))); //SessionKey Encrypted using user provate key // TODO how to get key 
+            }
+
+            var fileHeaders = new XElement("EncryptedFileHeader");
+            fileHeaders.Add(new XElement("Algorithm", "TODO"));
+            fileHeaders.Add(new XElement("KeySize", "TODO"));
+            fileHeaders.Add(new XElement("BlockSize", "TODO"));
+            fileHeaders.Add(new XElement("CipherMode", encryptionMode.ToString()));
+            fileHeaders.Add(new XElement("IV", "TODO"));
+            fileHeaders.Add(approvedUsers);
+
+            var resultXMLFile = new XDocument(
+                fileHeaders
+                );
+
+            resultXMLFile.Save(ResultFileNameBox.Text + ".xml"); // Path.GetExtension(filepath)
 
             foreach (var user in encryptionUsers) // Encrypt data for selected users
             {
                 // TODO
+
+                // C# xml reader create  new file
             }
 
 
