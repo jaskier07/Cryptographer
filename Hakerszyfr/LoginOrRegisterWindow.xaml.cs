@@ -39,8 +39,8 @@ namespace Cryptographer
                 {
                     RSA newRsaKeys = new RSACryptoServiceProvider(2048); // Generate a new 2048 bit RSA key
 
-                    var newUser = new User(newEmail, newPassword, newRsaKeys.ToXmlString(true));
-                    var newTxtLine = newEmail + "|" + newPassword + "|" + newRsaKeys.ToXmlString(true);
+                    var newUser = new User(newEmail, newPassword, newRsaKeys.ToXmlString(false), newRsaKeys.ToXmlString(true));
+                    var newTxtLine = newEmail + "|" + newPassword + "|" + newRsaKeys.ToXmlString(false) + "|" + newRsaKeys.ToXmlString(true);
                     File.AppendAllText(@"Users login details.txt", Environment.NewLine + newTxtLine);
                     UsersControler.usersList.Add(newUser);
                     UsersControler.currentUser = newUser;
@@ -62,7 +62,7 @@ namespace Cryptographer
                 String[] userData = line.Split('|'); // email, password, publicKey, privateKey    
                 if (LoginEmailTextBox.Text == userData[0] && LoginPasswordTextBox.Text == userData[1])
                 {
-                    UsersControler.currentUser = new User(userData[0], userData[1], userData[2]);
+                    UsersControler.currentUser = new User(userData[0], userData[1], userData[2], userData[3]);
                     Close();
                 }
             }

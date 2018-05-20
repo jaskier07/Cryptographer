@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.Cryptography;
 
 namespace Cryptographer
 {
@@ -7,7 +6,8 @@ namespace Cryptographer
     {
         public String email;
         public String password;
-        public String rsaKey;
+        public String rsaPublicKey; // newRsaKeys.ToXmlString(false)
+        public String rsaPublicPrivateKey; //// newRsaKeys.ToXmlString(true)
 
         public User(String password, String email)
         {
@@ -15,11 +15,12 @@ namespace Cryptographer
             this.password = password;
         }
 
-        public User(String email, String password, String rsaKey)
+        public User(String email, String password, String rsaPublicKey, String rsaPublicPrivateKey)
         {
             this.email = email;
             this.password = password;
-            this.rsaKey = rsaKey;
+            this.rsaPublicKey = rsaPublicKey;
+            this.rsaPublicPrivateKey = rsaPublicPrivateKey;
         }
     }
 }

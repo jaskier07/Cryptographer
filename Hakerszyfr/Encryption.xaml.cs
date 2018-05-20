@@ -3,8 +3,8 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.IO;
 using System.Security.Cryptography;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Xml.Linq;
@@ -50,7 +50,7 @@ namespace Hakerszyfr
             {
                 String[] userData = line.Split('|'); // email, password, RSAKey    
                 if (userName == userData[0])
-                    return new User(userData[0], userData[1], userData[2]);
+                    return new User(userData[0], userData[1], userData[2], userData[3]);
             }
             return null;
 
@@ -94,24 +94,27 @@ namespace Hakerszyfr
                 MessageBox.Show("No receiver choosen", "Cryptographer", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            byte[] generatedIV = null;
 
+            byte[] generatedIV = null;
+            byte[] generatedSessionKey = null;
             RSA sessionKey = new RSACryptoServiceProvider(2048); // Generate a new 2048 bit RSA key
             using (RijndaelManaged myRijndael = new RijndaelManaged())
             {
-
                 myRijndael.GenerateKey();
+                generatedSessionKey = myRijndael.Key;
+
                 myRijndael.GenerateIV();
-                generatedIV =  myRijndael.IV;
+                generatedIV = myRijndael.IV;
             }
-                var approvedUsers = new XElement("ApprovedUsers");
+
+            var approvedUsers = new XElement("ApprovedUsers");
             foreach (var user in encryptionUsers)
             {
+                var encryptedSessionKey = Encrypt(generatedSessionKey.ToString(), user.rsaPublicKey);
                 approvedUsers.Add(new XElement("User",
                           new XElement("Email", user.email),
-                          new XElement("SessionKey",
-                          AESCryptography.EncryptStringToBytes(sessionKey, (byte[])user.rsaKey /*TODO retrieve user*/ , byte[] IV,)
-      user.rsaKey))); //SessionKey Encrypted using user provate key // TODO how to get key 
+                          new XElement("SessionKey", encryptedSessionKey)
+                          ));
             }
 
             var fileHeaders = new XElement("EncryptedFileHeader");
@@ -125,6 +128,7 @@ namespace Hakerszyfr
             var resultXMLFile = new XDocument(
                 fileHeaders
                 );
+            //AESCryptography.EncryptStringToBytes(sessionKey.ToXmlString(true), Encoding.ASCII.GetBytes(user.rsaPublicPrivateKey), generatedIV, encryptionMode).ToString();
 
             resultXMLFile.Save(ResultFileNameBox.Text + ".xml"); // Path.GetExtension(filepath)
 
@@ -207,6 +211,47 @@ namespace Hakerszyfr
                 usersBox.Items.Add(itm);
             }
         }
+
+
+
+/*        public static string Decrypt(string data)
+        {
+            var rsa = new RSACryptoServiceProvider();
+            var dataArray = data.Split(new char[] { ',' });
+            byte[] dataByte = new byte[dataArray.Length];
+            for (int i = 0; i < dataArray.Length; i++)
+            {
+                dataByte[i] = Convert.ToByte(dataArray[i]);
+            }
+
+            rsa.FromXmlString(_privateKey);
+            var decryptedByte = rsa.Decrypt(dataByte, false);
+            return _encoder.GetString(decryptedByte);
+        }*/
+
+        public static string Encrypt(string data,string publicKey)
+        {
+            UnicodeEncoding _encoder = new UnicodeEncoding();
+            var rsa = new RSACryptoServiceProvider();
+            rsa.FromXmlString(publicKey);
+            var dataToEncrypt = _encoder.GetBytes(data);
+            var encryptedByteArray = (Array)rsa.Encrypt(dataToEncrypt, false);//.ToString().ToCharArray(); //Array ar = (Array)ba;
+            //                .ToArray();
+            var length = encryptedByteArray.Length; //Count
+            var item = 0;
+            var sb = new StringBuilder();
+            foreach (var x in encryptedByteArray)
+            {
+                item++;
+                sb.Append(x);
+
+                if (item < length)
+                    sb.Append(",");
+            }
+
+            return sb.ToString();
+        }
+
     }
 }
 
