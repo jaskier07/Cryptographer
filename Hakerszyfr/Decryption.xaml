@@ -20,10 +20,6 @@
         <Label Content="Choose receiver" HorizontalAlignment="Left" Margin="440,93,0,0" VerticalAlignment="Top" Width="270" FontSize="15" Padding="0,5,5,5"/>
         <Button Content="Add new receiver" HorizontalAlignment="Left" VerticalAlignment="Top" Width="142" Margin="568,242,0,0" Height="30"/>
         <ListBox x:Name="usersBox" HorizontalAlignment="Left" Height="100" Margin="440,123,0,0" VerticalAlignment="Top" Width="270">
-            <ListBoxItem Content="tomasz@interia.pl"/>
-            <ListBoxItem Content="krzysztof@wp.pl"/>
-            <ListBoxItem Content="julia@gmail.com"/>
-            <ListBoxItem Content="adrianna@o2.pl"/>
         </ListBox>
         <Button Content="Log in to another account" HorizontalAlignment="Left" Margin="409,50,0,0" VerticalAlignment="Top" Width="147" Height="37" Click="ButtonOpenAuthenticationWindow"/>
         <Label Name="LogOutButton" Content="Current user email" HorizontalAlignment="Left" Height="36" Margin="409,0,0,0" VerticalAlignment="Top" Width="301"/>

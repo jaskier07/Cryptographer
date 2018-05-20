@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AESCryptography.cs" />
     <Compile Include="Decryption.xaml.cs">
       <DependentUpon>Decryption.xaml</DependentUpon>
     </Compile>

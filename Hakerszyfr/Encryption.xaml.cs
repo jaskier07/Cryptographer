@@ -1,6 +1,7 @@
 ﻿using Cryptographer;
 using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -39,12 +40,77 @@ namespace Hakerszyfr
             }
         }
 
+        private User GetUserFromFile(string userName)
+        {
+            string[] usersData = System.IO.File.ReadAllLines(@"Users login details.txt");
+            foreach (string line in usersData)
+            {
+                String[] userData = line.Split('|'); // email, password, RSAKey    
+                if (userName == userData[0])
+                    return new User(userData[0], userData[1], userData[2]);
+            }
+            return null;
+
+        }
+
         private void StartEncoding(Object sender, RoutedEventArgs e)
         {
             if (filename == null)
             {
                 MessageBox.Show("No file chosen", "Cryptographer", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
+
+            List<User> encryptionUsers = new List<User>();
+            foreach (ListBoxItem userItem in usersBox.Items)
+            {
+                if (userItem.IsSelected)
+                    encryptionUsers.Add(GetUserFromFile(userItem.Content.ToString()));
+            }
+
+            foreach (var user in encryptionUsers) // Encrypt data for selected users
+            {
+                // TODO
+            }
+
+
+
+            /*
+             * 
+             * 
+             *                 try
+                        {
+
+                            string original = "Here is some data to encrypt!";
+
+                            // Create a new instance of the RijndaelManaged 
+                            // class.  This generates a new key and initialization  
+                            // vector (IV). 
+                            using (RijndaelManaged myRijndael = new RijndaelManaged())
+                            {
+
+                                myRijndael.GenerateKey();
+                                myRijndael.GenerateIV();
+                                // Encrypt the string to an array of bytes. 
+                                byte[] encrypted = EncryptStringToBytes(original, myRijndael.Key, myRijndael.IV);
+
+                                // Decrypt the bytes to a string. 
+                                string roundtrip = DecryptStringFromBytes(encrypted, myRijndael.Key, myRijndael.IV);
+
+                                //Display the original data and the decrypted data.
+                                Console.WriteLine("Original:   {0}", original);
+                                Console.WriteLine("Round Trip: {0}", roundtrip);
+                            }
+
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Error: {0}", e.Message);
+                        }
+                    }
+
+            */
+
         }
 
         private void OpenDecipherWindow(Object sender, RoutedEventArgs e)
@@ -73,8 +139,10 @@ namespace Hakerszyfr
             foreach (string line in usersData)
             {
                 String[] userData = line.Split('|'); // email, password, publicKey, privateKey    
-                ListBoxItem itm = new ListBoxItem();
-                itm.Content = userData[0];
+                ListBoxItem itm = new ListBoxItem
+                {
+                    Content = userData[0]
+                };
                 usersBox.Items.Add(itm);
             }
         }

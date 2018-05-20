@@ -65,8 +65,10 @@ namespace Hakerszyfr
             foreach (string line in usersData)
             {
                 String[] userData = line.Split('|'); // email, password, publicKey, privateKey    
-                ListBoxItem itm = new ListBoxItem();
-                itm.Content = userData[0];
+                ListBoxItem itm = new ListBoxItem
+                {
+                    Content = userData[0]
+                };
                 usersBox.Items.Add(itm);
             }
         }
