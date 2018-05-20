@@ -63,6 +63,7 @@ namespace Cryptographer
             {
                 rijAlg.Key = Key;
                 rijAlg.IV = IV;
+             //   aesAlg.Mode = CipherMode.CBC; TODO
 
                 // Create a decrytor to perform the stream transform.
                 ICryptoTransform decryptor = rijAlg.CreateDecryptor(rijAlg.Key, rijAlg.IV);

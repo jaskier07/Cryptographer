@@ -3,6 +3,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Security.Cryptography;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -61,6 +62,24 @@ namespace Hakerszyfr
                 return;
             }
 
+            CipherMode encryptionMode = 0;
+
+            if ((bool)ECBRadioButton.IsChecked)
+                encryptionMode = CipherMode.ECB;
+            if ((bool)CBCRadioButton.IsChecked)
+                encryptionMode = CipherMode.CBC;
+            if ((bool)CFBRadioButton.IsChecked)
+                encryptionMode = CipherMode.CFB;
+            if ((bool)OFBRadioButton.IsChecked)
+                encryptionMode = CipherMode.OFB;
+
+            String fileContent = System.IO.File.ReadAllText(filepath);
+            if (encryptionMode == 0)
+            {
+                MessageBox.Show("You must choose encryption mode", "Cryptographer", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             List<User> encryptionUsers = new List<User>();
             foreach (ListBoxItem userItem in usersBox.Items)
             {
@@ -68,11 +87,16 @@ namespace Hakerszyfr
                     encryptionUsers.Add(GetUserFromFile(userItem.Content.ToString()));
             }
 
+            if (encryptionUsers.Count == 0)
+            {
+                MessageBox.Show("No receiver choosen", "Cryptographer", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             foreach (var user in encryptionUsers) // Encrypt data for selected users
             {
                 // TODO
             }
-
 
 
             /*
