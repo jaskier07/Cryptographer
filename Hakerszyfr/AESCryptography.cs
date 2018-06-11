@@ -40,6 +40,7 @@ namespace Cryptographer
                     }
                 }
             }
+
             return encrypted;
         }
 

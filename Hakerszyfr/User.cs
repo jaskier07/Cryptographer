@@ -7,7 +7,7 @@ namespace Cryptographer
         public String email;
         public String password;
         public String rsaPublicKey; // newRsaKeys.ToXmlString(false)
-        public String rsaPublicPrivateKey; //// newRsaKeys.ToXmlString(true)
+        public String rsaPublicPrivateKey; // newRsaKeys.ToXmlString(true)
 
         public User(String password, String email)
         {

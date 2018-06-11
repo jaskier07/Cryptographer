@@ -3,6 +3,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
@@ -15,7 +16,7 @@ namespace Hakerszyfr
     {
         private String filename;
         private String filepath;
-
+        private static UnicodeEncoding _encoder = new UnicodeEncoding();
         public Encryption()
         {
             InitializeComponent();
@@ -75,7 +76,7 @@ namespace Hakerszyfr
             if ((bool)OFBRadioButton.IsChecked)
                 encryptionMode = CipherMode.OFB;
 
-            String fileContent = System.IO.File.ReadAllText(filepath);
+            String fileContent = File.ReadAllText(filepath);
             if (encryptionMode == 0)
             {
                 MessageBox.Show("You must choose encryption mode", "Cryptographer", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -107,10 +108,17 @@ namespace Hakerszyfr
                 generatedIV = myRijndael.IV;
             }
 
+            // Encoding.Unicode.GetString(myarray);
+            // Encoding.Unicode.GetBytes(mystring);
+            //   var temp0 = Encoding.Unicode.GetString(generatedSessionKey);
+            //   var temp1 = Encrypt(Encoding.Unicode.GetString(generatedSessionKey), encryptionUsers[0].rsaPublicKey);
+            //   var temp2 = Decrypt(temp1, encryptionUsers[0].rsaPublicPrivateKey);
+            //   var temp3 = Encoding.Unicode.GetBytes(temp2);
+
             var approvedUsers = new XElement("ApprovedUsers");
             foreach (var user in encryptionUsers)
             {
-                var encryptedSessionKey = Encrypt(generatedSessionKey.ToString(), user.rsaPublicKey);
+                var encryptedSessionKey = Encrypt(Encoding.Unicode.GetString(generatedSessionKey), user.rsaPublicKey);
                 approvedUsers.Add(new XElement("User",
                           new XElement("Email", user.email),
                           new XElement("SessionKey", encryptedSessionKey)
@@ -118,64 +126,23 @@ namespace Hakerszyfr
             }
 
             var fileHeaders = new XElement("EncryptedFileHeader");
-            fileHeaders.Add(new XElement("Algorithm", "TODO"));
-            fileHeaders.Add(new XElement("KeySize", "TODO"));
-            fileHeaders.Add(new XElement("BlockSize", "TODO"));
+            fileHeaders.Add(new XElement("Algorithm", "AES"));
+            fileHeaders.Add(new XElement("KeySize", "196")); // TODO is it OK?
+            fileHeaders.Add(new XElement("BlockSize", "128"));
             fileHeaders.Add(new XElement("CipherMode", encryptionMode.ToString()));
-            fileHeaders.Add(new XElement("IV", "TODO"));
+            fileHeaders.Add(new XElement("IV", Encoding.Unicode.GetString(generatedIV)));
             fileHeaders.Add(approvedUsers);
 
             var resultXMLFile = new XDocument(
                 fileHeaders
                 );
-            //AESCryptography.EncryptStringToBytes(sessionKey.ToXmlString(true), Encoding.ASCII.GetBytes(user.rsaPublicPrivateKey), generatedIV, encryptionMode).ToString();
 
             resultXMLFile.Save(ResultFileNameBox.Text + ".xml"); // Path.GetExtension(filepath)
-
-            foreach (var user in encryptionUsers) // Encrypt data for selected users
+            using (StreamWriter sw = File.AppendText(ResultFileNameBox.Text + ".xml"))
             {
-                // TODO
-
-                // C# xml reader create  new file
-            }
-
-
-            /*
-             * 
-             * 
-             *                 try
-                        {
-
-                            string original = "Here is some data to encrypt!";
-
-                            // Create a new instance of the RijndaelManaged 
-                            // class.  This generates a new key and initialization  
-                            // vector (IV). 
-                            using (RijndaelManaged myRijndael = new RijndaelManaged())
-                            {
-
-                                myRijndael.GenerateKey();
-                                myRijndael.GenerateIV();
-                                // Encrypt the string to an array of bytes. 
-                                byte[] encrypted = EncryptStringToBytes(original, myRijndael.Key, myRijndael.IV);
-
-                                // Decrypt the bytes to a string. 
-                                string roundtrip = DecryptStringFromBytes(encrypted, myRijndael.Key, myRijndael.IV);
-
-                                //Display the original data and the decrypted data.
-                                Console.WriteLine("Original:   {0}", original);
-                                Console.WriteLine("Round Trip: {0}", roundtrip);
-                            }
-
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine("Error: {0}", e.Message);
-                        }
-                    }
-
-            */
-
+   
+                sw.Write(Encoding.Unicode.GetString(AESCryptography.EncryptStringToBytes("TEMP TODO File content", generatedSessionKey, generatedIV, encryptionMode)));
+            }           
         }
 
         private void OpenDecipherWindow(Object sender, RoutedEventArgs e)
@@ -212,9 +179,7 @@ namespace Hakerszyfr
             }
         }
 
-
-
-/*        public static string Decrypt(string data)
+        public static string Decrypt(string data, string privateKey)
         {
             var rsa = new RSACryptoServiceProvider();
             var dataArray = data.Split(new char[] { ',' });
@@ -224,14 +189,13 @@ namespace Hakerszyfr
                 dataByte[i] = Convert.ToByte(dataArray[i]);
             }
 
-            rsa.FromXmlString(_privateKey);
+            rsa.FromXmlString(privateKey);
             var decryptedByte = rsa.Decrypt(dataByte, false);
             return _encoder.GetString(decryptedByte);
-        }*/
+        }
 
-        public static string Encrypt(string data,string publicKey)
+        public static string Encrypt(string data, string publicKey)
         {
-            UnicodeEncoding _encoder = new UnicodeEncoding();
             var rsa = new RSACryptoServiceProvider();
             rsa.FromXmlString(publicKey);
             var dataToEncrypt = _encoder.GetBytes(data);
