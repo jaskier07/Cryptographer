@@ -73,8 +73,6 @@ namespace Hakerszyfr
                 encryptionMode = CipherMode.CBC;
             if ((bool)CFBRadioButton.IsChecked)
                 encryptionMode = CipherMode.CFB;
-            if ((bool)OFBRadioButton.IsChecked)
-                encryptionMode = CipherMode.OFB;
 
             String fileContent = File.ReadAllText(filepath);
             if (encryptionMode == 0)
@@ -108,17 +106,10 @@ namespace Hakerszyfr
                 generatedIV = myRijndael.IV;
             }
 
-            // Encoding.Unicode.GetString(myarray);
-            // Encoding.Unicode.GetBytes(mystring);
-            //   var temp0 = Encoding.Unicode.GetString(generatedSessionKey);
-            //   var temp1 = Encrypt(Encoding.Unicode.GetString(generatedSessionKey), encryptionUsers[0].rsaPublicKey);
-            //   var temp2 = Decrypt(temp1, encryptionUsers[0].rsaPublicPrivateKey);
-            //   var temp3 = Encoding.Unicode.GetBytes(temp2);
-
             var approvedUsers = new XElement("ApprovedUsers");
             foreach (var user in encryptionUsers)
             {
-                var encryptedSessionKey = Encrypt(Encoding.Unicode.GetString(generatedSessionKey), user.rsaPublicKey);
+                var encryptedSessionKey = Encrypt(Convert.ToBase64String(generatedSessionKey), user.rsaPublicKey);
                 approvedUsers.Add(new XElement("User",
                           new XElement("Email", user.email),
                           new XElement("SessionKey", encryptedSessionKey)
@@ -130,7 +121,7 @@ namespace Hakerszyfr
             fileHeaders.Add(new XElement("KeySize", "196")); // TODO is it OK?
             fileHeaders.Add(new XElement("BlockSize", "128"));
             fileHeaders.Add(new XElement("CipherMode", encryptionMode.ToString()));
-            fileHeaders.Add(new XElement("IV", Encoding.Unicode.GetString(generatedIV)));
+            fileHeaders.Add(new XElement("IV", Convert.ToBase64String(generatedIV)));
             fileHeaders.Add(approvedUsers);
 
             var resultXMLFile = new XDocument(
@@ -138,11 +129,14 @@ namespace Hakerszyfr
                 );
 
             resultXMLFile.Save(ResultFileNameBox.Text + ".xml"); // Path.GetExtension(filepath)
+
+            // var temp = AESCryptography.EncryptStringToBytes(File.ReadAllText(filepath), generatedSessionKey, generatedIV, encryptionMode);
+            // var temp1 = AESCryptography.DecryptStringFromBytes(temp, generatedSessionKey, generatedIV, encryptionMode);
+
             using (StreamWriter sw = File.AppendText(ResultFileNameBox.Text + ".xml"))
             {
-   
-                sw.Write(Encoding.Unicode.GetString(AESCryptography.EncryptStringToBytes("TEMP TODO File content", generatedSessionKey, generatedIV, encryptionMode)));
-            }           
+                sw.Write(Convert.ToBase64String(AESCryptography.EncryptStringToBytes(File.ReadAllText(filepath), generatedSessionKey, generatedIV, encryptionMode)));
+            }
         }
 
         private void OpenDecipherWindow(Object sender, RoutedEventArgs e)
@@ -167,7 +161,7 @@ namespace Hakerszyfr
         {
             usersBox.Items.Clear();
 
-            string[] usersData = System.IO.File.ReadAllLines(@"Users login details.txt");
+            string[] usersData = File.ReadAllLines(@"Users login details.txt");
             foreach (string line in usersData)
             {
                 String[] userData = line.Split('|'); // email, password, publicKey, privateKey    
@@ -179,29 +173,13 @@ namespace Hakerszyfr
             }
         }
 
-        public static string Decrypt(string data, string privateKey)
-        {
-            var rsa = new RSACryptoServiceProvider();
-            var dataArray = data.Split(new char[] { ',' });
-            byte[] dataByte = new byte[dataArray.Length];
-            for (int i = 0; i < dataArray.Length; i++)
-            {
-                dataByte[i] = Convert.ToByte(dataArray[i]);
-            }
-
-            rsa.FromXmlString(privateKey);
-            var decryptedByte = rsa.Decrypt(dataByte, false);
-            return _encoder.GetString(decryptedByte);
-        }
-
         public static string Encrypt(string data, string publicKey)
         {
             var rsa = new RSACryptoServiceProvider();
             rsa.FromXmlString(publicKey);
             var dataToEncrypt = _encoder.GetBytes(data);
-            var encryptedByteArray = (Array)rsa.Encrypt(dataToEncrypt, false);//.ToString().ToCharArray(); //Array ar = (Array)ba;
-            //                .ToArray();
-            var length = encryptedByteArray.Length; //Count
+            var encryptedByteArray = (Array)rsa.Encrypt(dataToEncrypt, false);
+            var length = encryptedByteArray.Length;
             var item = 0;
             var sb = new StringBuilder();
             foreach (var x in encryptedByteArray)
@@ -215,10 +193,5 @@ namespace Hakerszyfr
 
             return sb.ToString();
         }
-
     }
 }
-
-
-
-

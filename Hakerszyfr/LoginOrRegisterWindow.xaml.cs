@@ -16,9 +16,9 @@ namespace Cryptographer
         private void RegisterAction(object sender, RoutedEventArgs e)
         {
             String newEmail = RegisterEmailTextBox.Text;
-            String newPassword = RegisterPasswordTextBox.Text;
+            String newPassword = RegisterPasswordTextBox.Password;
 
-            string[] usersData = System.IO.File.ReadAllLines(@"Users login details.txt");
+            string[] usersData = File.ReadAllLines(@"Users login details.txt");
             bool isRegisterAllowed = true;
             if (newPassword.Length >= 7 &&
                 newPassword.Any(char.IsUpper) &&
@@ -39,8 +39,8 @@ namespace Cryptographer
                 {
                     RSA newRsaKeys = new RSACryptoServiceProvider(2048); // Generate a new 2048 bit RSA key
 
-                    var newUser = new User(newEmail, newPassword, newRsaKeys.ToXmlString(false), newRsaKeys.ToXmlString(true));
-                    var newTxtLine = newEmail + "|" + newPassword + "|" + newRsaKeys.ToXmlString(false) + "|" + newRsaKeys.ToXmlString(true);
+                    var newUser = new User(newEmail, UsersControler.GenerateSHA512String(newPassword), newRsaKeys.ToXmlString(false), newRsaKeys.ToXmlString(true));
+                    var newTxtLine = newEmail + "|" + UsersControler.GenerateSHA512String(newPassword) + "|" + newRsaKeys.ToXmlString(false) + "|" + newRsaKeys.ToXmlString(true);
                     File.AppendAllText(@"Users login details.txt", Environment.NewLine + newTxtLine);
                     UsersControler.usersList.Add(newUser);
                     UsersControler.currentUser = newUser;
@@ -55,12 +55,14 @@ namespace Cryptographer
 
         private void LoginAction(object sender, RoutedEventArgs e)
         {
-            string[] usersData = System.IO.File.ReadAllLines(@"Users login details.txt");
+            string[] usersData = File.ReadAllLines(@"Users login details.txt");
 
             foreach (string line in usersData)
             {
                 String[] userData = line.Split('|'); // email, password, publicKey, privateKey    
-                if (LoginEmailTextBox.Text == userData[0] && LoginPasswordTextBox.Text == userData[1])
+                var md5 = new MD5CryptoServiceProvider();
+                var hashedPassword = UsersControler.GenerateSHA512String(LoginPasswordTextBox.Password);
+                if (LoginEmailTextBox.Text == userData[0] && hashedPassword == userData[1])
                 {
                     UsersControler.currentUser = new User(userData[0], userData[1], userData[2], userData[3]);
                     Close();

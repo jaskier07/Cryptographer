@@ -53,6 +53,21 @@ namespace Hakerszyfr
             if (filename == null)
             {
                 MessageBox.Show("No file chosen", "Cryptographer", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            string selectedUserEmail;
+            try
+            {
+                selectedUserEmail = usersBox.SelectedItem.ToString().Split(' ')[1];
+            }
+            catch (Exception) { return; }
+
+            if (selectedUserEmail != UsersControler.currentUser.email)
+            {
+                var x = usersBox.SelectedItem.ToString();
+                var y = UsersControler.currentUser.email;
+                return;
             }
 
             string encryptedFileContent = File.ReadAllText(filepath);
@@ -62,7 +77,7 @@ namespace Hakerszyfr
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(XMLStringMetadata);
 
-            byte[] IV = Encoding.Unicode.GetBytes(doc.SelectSingleNode("EncryptedFileHeader/IV").InnerText);
+            byte[] IV = Convert.FromBase64String(doc.SelectSingleNode("EncryptedFileHeader/IV").InnerText);
 
             CipherMode encryptionMode = 0;
             string cipherMode = doc.SelectSingleNode("EncryptedFileHeader/CipherMode").InnerText;
@@ -72,8 +87,6 @@ namespace Hakerszyfr
                 encryptionMode = CipherMode.CBC;
             if (cipherMode == "CFB")
                 encryptionMode = CipherMode.CFB;
-            if (cipherMode == "OFB")
-                encryptionMode = CipherMode.OFB;
 
             XmlNodeList approvedUserNodes = doc.SelectNodes("/EncryptedFileHeader/ApprovedUsers");
             foreach (XmlNode node in approvedUserNodes)
@@ -91,13 +104,16 @@ namespace Hakerszyfr
                 MessageBox.Show("No user fitting to detailed in XML metadata");
                 return;
             }
-            MessageBox.Show(AESCryptography.DecryptStringFromBytes(Encoding.Unicode.GetBytes(encyptedData), Encoding.Unicode.GetBytes(sessionKey), IV, encryptionMode));
+            SaveFileDialog sf = new SaveFileDialog();
+            sf.FileName = "DecodedResultFile";
+            bool? safeDialogResult = sf.ShowDialog();
 
-
+            if (safeDialogResult == true)
+            {
+                File.WriteAllText(Path.GetFullPath(sf.FileName), AESCryptography.DecryptStringFromBytes(Convert.FromBase64String(encyptedData), Convert.FromBase64String(sessionKey), IV, encryptionMode));
+            }
         }
 
-
-        // TODO Chwilowo przekleiłem
         public static string Decrypt(string data, string privateKey)
         {
             var rsa = new RSACryptoServiceProvider();

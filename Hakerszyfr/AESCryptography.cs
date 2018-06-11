@@ -22,6 +22,7 @@ namespace Cryptographer
                 rijAlg.Key = Key;
                 rijAlg.IV = IV;
                 rijAlg.Mode = cipherMode;
+
                 // Create a decryptor to perform the stream transform.
                 ICryptoTransform encryptor = rijAlg.CreateEncryptor(rijAlg.Key, rijAlg.IV);
 
@@ -78,7 +79,8 @@ namespace Cryptographer
                         {
 
                             // Read the decrypted bytes from the decrypting stream 
-                            // and place them in a string.
+                            // and place them in a string.rijndael.Padding = PaddingMode.None;
+
                             plaintext = srDecrypt.ReadToEnd();
                         }
                     }
