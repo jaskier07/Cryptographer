@@ -16,6 +16,8 @@ namespace Hakerszyfr
     {
         private String filename;
         private String filepath;
+        private String fileExtension;
+
         private static UnicodeEncoding _encoder = new UnicodeEncoding();
         public Encryption()
         {
@@ -41,6 +43,7 @@ namespace Hakerszyfr
                 filename = dlg.SafeFileName;
                 filepath = dlg.FileName;
                 chosenFileLabel.Content = filename;
+                ResultFileNameBox.Text = filename;
             }
         }
 

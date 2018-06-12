@@ -105,7 +105,7 @@ namespace Hakerszyfr
                 return;
             }
             SaveFileDialog sf = new SaveFileDialog();
-            sf.FileName = "DecodedResultFile";
+            sf.FileName = filename.Remove(filename.Length - 4) ;
             bool? safeDialogResult = sf.ShowDialog();
 
             if (safeDialogResult == true)
